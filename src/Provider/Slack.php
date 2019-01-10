@@ -50,11 +50,10 @@ class Slack extends AbstractProvider
         $authorizedUser = $this->getAuthorizedUser($token);
 
         $params = [
-            'token' => $token->getToken(),
-            'user'  => $authorizedUser->getId()
+            'token' => $token->getToken()
         ];
 
-        $url = 'https://slack.com/api/users.info?'.http_build_query($params);
+        $url = 'https://slack.com/api/users.identity?'.http_build_query($params);
 
         return $url;
     }
@@ -66,7 +65,7 @@ class Slack extends AbstractProvider
      */
     public function getAuthorizedUserTestUrl($token)
     {
-        return "https://slack.com/api/auth.test?token=".$token;
+        return "https://slack.com/api/users.identity?token=".$token;
     }
 
     /**

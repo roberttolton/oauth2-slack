@@ -26,7 +26,7 @@ class SlackAuthorizedUser implements ResourceOwnerInterface
      */
     public function getId()
     {
-        return $this->response['user_id'];
+        return $this->response['user']['id'];
     }
 
     /**
@@ -56,11 +56,11 @@ class SlackAuthorizedUser implements ResourceOwnerInterface
 
     public function getTeamId()
     {
-        return $this->response['team_id'] ?: null;
+        return $this->response['team']['id'] ?: null;
     }
 
     public function getUserId()
     {
-        return $this->response['user_id'] ?: null;
+        return $this->response['user']['id'] ?: null;
     }
 }
